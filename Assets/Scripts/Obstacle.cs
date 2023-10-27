@@ -9,16 +9,21 @@ public class Obstacle : MonoBehaviour
 {
     // private GameObject player;
     
-    public int life;
+    private int life;
 
     public TextMeshPro lifeText;
+
+    private float time;
+
+    public Memory memory;
 
     // Start is called before the first frame update
     void Start()
     {
-        // player = GameObject.FindGameObjectWithTag("Player");
+        life = Random.Range(3+(int)memory.score/4, 7+(int)memory.score/3);
         lifeText.text = life.ToString();
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,6 +39,7 @@ public class Obstacle : MonoBehaviour
 
         else if (other.tag == "Bullet")
         {
+            Destroy(other.gameObject);
             life--;
             lifeText.text = life.ToString();
             if (life <= 0)

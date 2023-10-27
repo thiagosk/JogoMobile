@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;
-
     private Rigidbody2D rb;
+
+    public Memory memory;
 
 
     // Start is called before the first frame update
@@ -19,18 +19,13 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rb.velocity = transform.up * speed;
+        rb.velocity = transform.up * memory.bulletSpeed;
     }
 
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.tag == "TopBorder")
-        {
-            Destroy(gameObject);
-        }
-
-        else if (other.tag == "Obstacle")
         {
             Destroy(gameObject);
         }

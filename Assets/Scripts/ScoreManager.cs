@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     private float score;
 
+    public Memory memory;
+
     // Update is called once per frame
     void Update()
     {
@@ -16,6 +18,8 @@ public class ScoreManager : MonoBehaviour
         {
             score += 1 * Time.deltaTime;
             scoreText.text = ((int)score).ToString();
+
+            memory.score = score;
         }
     }
 }

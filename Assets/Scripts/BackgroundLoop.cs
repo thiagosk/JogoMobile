@@ -5,12 +5,14 @@ using UnityEngine;
 public class BackgroundLoop : MonoBehaviour
 {
 
-    public float backgroundSpeed;
     public Renderer backgroundRenderer;
+
+    public Memory memory;
 
     // Update is called once per frame
     void Update()
     {
-        backgroundRenderer.material.mainTextureOffset += new Vector2(0f, backgroundSpeed * Time.deltaTime);
+        memory.backgroundSpeed = memory.backgroundSpeed - memory.score/10000000;
+        backgroundRenderer.material.mainTextureOffset += new Vector2(0f, memory.backgroundSpeed * Time.deltaTime);
     }
 }

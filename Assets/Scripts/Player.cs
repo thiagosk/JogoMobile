@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    public float playerSpeed;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
 
-    public float fireRate;
     private float timeToFire;
-    public Transform firingPoint;
+    public Transform firingPoint1;
+    public Transform firingPoint2;
+    public Transform firingPoint3;
     public GameObject bullet;
+
+    public Memory memory;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        memory.playerSpeed = 5;
+        memory.fireRate = 0.4f;
+        memory.numBulletsSpawn = 1;
     }
 
     // Update is called once per frame
@@ -30,16 +34,56 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(playerDirection.x * playerSpeed, 0);
+        rb.velocity = new Vector2(playerDirection.x * memory.playerSpeed, 0);
     }
 
     private void Shoot() {
         if (timeToFire <= 0f) {
-            timeToFire = fireRate;
-            Instantiate(bullet, firingPoint.transform.position, firingPoint.transform.rotation);
+            timeToFire = memory.fireRate;
+            if (memory.numBulletsSpawn == 1)
+            {
+                Instantiate(bullet, firingPoint1.transform.position, firingPoint1.transform.rotation);
+            }
+            else if (memory.numBulletsSpawn == 2)
+            {
+                Instantiate(bullet, firingPoint1.transform.position, firingPoint1.transform.rotation);
+                Instantiate(bullet, firingPoint2.transform.position, firingPoint2.transform.rotation);
+            }
+            else
+            {
+                Instantiate(bullet, firingPoint1.transform.position, firingPoint1.transform.rotation);
+                Instantiate(bullet, firingPoint2.transform.position, firingPoint2.transform.rotation);
+                Instantiate(bullet, firingPoint3.transform.position, firingPoint3.transform.rotation);
+            }
         }
         else {
             timeToFire -= Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "MoreFireRate")
+        {
+            Destroy(other.gameObject);
+            if (memory.fireRate > 0.05)
+            {
+                memory.fireRate-=0.05f;
+            }
+        }
+        else if (other.tag == "MoreBulletsSpawn")
+        {
+            Destroy(other.gameObject);
+            if (memory.numBulletsSpawn<=2)
+            {
+                memory.numBulletsSpawn+=1;
+                memory.fireRate+=0.05f;
+            }
+        }
+        else if (other.tag == "Money")
+        {
+            Destroy(other.gameObject);
+            memory.money+=5;
         }
     }
 }

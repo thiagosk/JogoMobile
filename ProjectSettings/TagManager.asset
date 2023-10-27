@@ -9,6 +9,9 @@ TagManager:
   - BottomBorder
   - TopBorder
   - Obstacle
+  - MoreFireRate
+  - MoreBulletsSpawn
+  - Money
   layers:
   - Default
   - TransparentFX

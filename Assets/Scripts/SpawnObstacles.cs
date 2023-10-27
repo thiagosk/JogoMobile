@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SpawnObstacles : MonoBehaviour
 {
-    public GameObject obstacle;
-    public float maxX;
-    public float minX;
-    public float maxY;
-    public float minY;
-    public float timeBetweenSpawn;
+    public GameObject[] obstacle;
+    public GameObject[] obstacleWithUpgrade;
     private float spawnTime;
+    public Memory memory;
+
+    void Start()
+    {
+        memory.timeBetweenSpawn = 2f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,16 +20,26 @@ public class SpawnObstacles : MonoBehaviour
         if (Time.time > spawnTime)
         {
             Spawn();
-            spawnTime = Time.time + timeBetweenSpawn;
+            spawnTime = Time.time + memory.timeBetweenSpawn;
+        }
+        if (memory.timeBetweenSpawn >= 1.5)
+        {
+            memory.timeBetweenSpawn-=memory.score/100000;
         }
     }
 
     void Spawn()
     {
-        float randomX = Random.Range(minX, maxX);
-        float randomY = Random.Range(minY, maxY);
-
-        // Instantiate(obstacle, transform.position + new Vector3(randomX, randomY, 0), transform.rotation);
-        Instantiate(obstacle, transform.position, transform.rotation);
+        int randomNum = Random.Range(1, 11);
+        if (randomNum <= 3)
+        {
+            int randomObstacleWithUpgradeIndex = Random.Range(0, obstacleWithUpgrade.Length);
+            Instantiate(obstacleWithUpgrade[randomObstacleWithUpgradeIndex], transform.position, transform.rotation);
+        }
+        else
+        {
+            int randomObstacleIndex = Random.Range(0, obstacle.Length);
+            Instantiate(obstacle[randomObstacleIndex], transform.position, transform.rotation);
+        }
     }
 }
