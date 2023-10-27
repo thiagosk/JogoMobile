@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnObstacles : MonoBehaviour
 {
     public GameObject[] obstacle;
-    public GameObject[] obstacleWithUpgrade;
+    public GameObject[] obstacleWithUpgradeFR;
+    public GameObject[] obstacleWithUpgradeMB;
+    public GameObject[] obstacleWithMoney;
     private float spawnTime;
     public Memory memory;
 
@@ -31,10 +33,20 @@ public class SpawnObstacles : MonoBehaviour
     void Spawn()
     {
         int randomNum = Random.Range(1, 11);
-        if (randomNum <= 3)
+        if (randomNum <= 2)
         {
-            int randomObstacleWithUpgradeIndex = Random.Range(0, obstacleWithUpgrade.Length);
-            Instantiate(obstacleWithUpgrade[randomObstacleWithUpgradeIndex], transform.position, transform.rotation);
+            int randomObstacleWithUpgradeFRIndex = Random.Range(0, obstacleWithUpgradeFR.Length);
+            Instantiate(obstacleWithUpgradeFR[randomObstacleWithUpgradeFRIndex], transform.position, transform.rotation);
+        }
+        else if (randomNum <= 4 && memory.numBulletsSpawn < 3)
+        {
+            int randomObstacleWithUpgradeMBIndex = Random.Range(0, obstacleWithUpgradeMB.Length);
+            Instantiate(obstacleWithUpgradeMB[randomObstacleWithUpgradeMBIndex], transform.position, transform.rotation);
+        }
+        else if (randomNum <= 6)
+        {
+            int randomObstacleWithMoneyIndex = Random.Range(0, obstacleWithMoney.Length);
+            Instantiate(obstacleWithMoney[randomObstacleWithMoneyIndex], transform.position, transform.rotation);
         }
         else
         {

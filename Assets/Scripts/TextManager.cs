@@ -7,19 +7,28 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI moneyText;
     private float score;
 
     public Memory memory;
+
+    void Start()
+    {
+        memory.score = 0;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
-            score += 1 * Time.deltaTime;
-            scoreText.text = ((int)score).ToString();
-
-            memory.score = score;
+            memory.score += 1 * Time.deltaTime;
+            scoreText.text = ((int)memory.score).ToString();
         }
+        // else
+        // {
+            
+        // }
+        moneyText.text = memory.money.ToString();
     }
 }
