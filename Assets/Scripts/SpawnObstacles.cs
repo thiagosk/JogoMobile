@@ -33,7 +33,7 @@ public class SpawnObstacles : MonoBehaviour
     void Spawn()
     {
         int randomNum = Random.Range(1, 11);
-        if (randomNum <= 2)
+        if (randomNum <= 2 && memory.fireRate > 0.05)
         {
             int randomObstacleWithUpgradeFRIndex = Random.Range(0, obstacleWithUpgradeFR.Length);
             Instantiate(obstacleWithUpgradeFR[randomObstacleWithUpgradeFRIndex], transform.position, transform.rotation);
