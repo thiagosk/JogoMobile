@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 4056097466011768031}
   m_Layer: 0
   m_Name: ObstacleParent
-  m_TagString: Untagged
+  m_TagString: ObstacleRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,7 +367,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.87129784, a: 1}
+  m_Color: {r: 1, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 8795863431329616962}
   m_Layer: 0
   m_Name: ObstacleParent (2)
-  m_TagString: Untagged
+  m_TagString: ObstaclePink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

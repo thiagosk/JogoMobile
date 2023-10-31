@@ -11,12 +11,7 @@ public class ScoreManager : MonoBehaviour
     private float score;
 
     public Memory memory;
-
-    void Start()
-    {
-        memory.score = 0;
-        memory.money = 0;
-    }
+    
 
     // Update is called once per frame
     void Update()

@@ -12,6 +12,17 @@ TagManager:
   - MoreFireRate
   - MoreBulletsSpawn
   - Money
+  - MoreDamage
+  - InstaKill
+  - DoubleMoney
+  - BottomBorderPlayer
+  - ObstacleYellow
+  - ObstacleGreen
+  - ObstacleBlue
+  - ObstaclePink
+  - ObstacleRed
+  - ObstacleOrange
+  - ColorChange
   layers:
   - Default
   - TransparentFX

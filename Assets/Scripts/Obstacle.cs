@@ -20,7 +20,14 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        life = Random.Range(3+(int)memory.score/4, 7+(int)memory.score/3);
+        if (memory.instaKill == 1)
+        {
+            life = 1;
+        }
+        else
+        {
+            life = Random.Range(3+(int)memory.score/4, 7+(int)memory.score/3);
+        }
         lifeText.text = life.ToString();
     }
 
@@ -39,8 +46,36 @@ public class Obstacle : MonoBehaviour
 
         else if (other.tag == "Bullet")
         {
+            if (memory.bulletColor == 0 && gameObject.tag == "ObstacleYellow")
+            {
+                life -= memory.damage * 2;
+            }
+            else if (memory.bulletColor == 1 && gameObject.tag == "ObstacleBlue")
+            {
+                life -= memory.damage * 2;
+            }
+            else if (memory.bulletColor == 2 && gameObject.tag == "ObstacleRed")
+            {
+                life -= memory.damage * 2;
+            }
+            else if (memory.bulletColor == 3 && gameObject.tag == "ObstacleGreen")
+            {
+                life -= memory.damage * 2;
+            }
+            else if (memory.bulletColor == 4 && gameObject.tag == "ObstaclePink")
+            {
+                life -= memory.damage * 2;
+            }
+            else if (memory.bulletColor == 5 && gameObject.tag == "ObstacleOrange")
+            {
+                life -= memory.damage * 2;
+            }
+            else
+            {
+                life -= memory.damage;
+            }
+
             Destroy(other.gameObject);
-            life--;
             lifeText.text = life.ToString();
             if (life <= 0)
             {

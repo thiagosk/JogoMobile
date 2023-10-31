@@ -11,17 +11,25 @@ public class Player : MonoBehaviour
     public Transform firingPoint1;
     public Transform firingPoint2;
     public Transform firingPoint3;
-    public GameObject bullet;
+    // public GameObject bullet;
 
     public Memory memory;
+
+    private float InstaKillTime;
+    private float DoubleMoneyTime;
+
+    public GameObject[] bulletColors;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        memory.playerSpeed = 5;
         memory.fireRate = 0.4f;
         memory.numBulletsSpawn = 1;
+        memory.damage = 1;
+        memory.instaKill = 0;
+        memory.doubleMoney = 0;
     }
 
     // Update is called once per frame
@@ -30,6 +38,15 @@ public class Player : MonoBehaviour
         float directionX = Input.GetAxisRaw("Horizontal");
         playerDirection = new Vector2(directionX, 0).normalized;
         Shoot();
+        
+        if (InstaKillTime <= memory.score)
+        {
+            memory.instaKill = 0;
+        }
+        if (DoubleMoneyTime <= memory.score)
+        {
+            memory.doubleMoney = 0;
+        }
     }
 
     void FixedUpdate()
@@ -42,18 +59,18 @@ public class Player : MonoBehaviour
             timeToFire = memory.fireRate;
             if (memory.numBulletsSpawn == 1)
             {
-                Instantiate(bullet, firingPoint1.transform.position, firingPoint1.transform.rotation);
+                Instantiate(bulletColors[memory.bulletColor], firingPoint1.transform.position, firingPoint1.transform.rotation);
             }
             else if (memory.numBulletsSpawn == 2)
             {
-                Instantiate(bullet, firingPoint1.transform.position, firingPoint1.transform.rotation);
-                Instantiate(bullet, firingPoint2.transform.position, firingPoint2.transform.rotation);
+                Instantiate(bulletColors[memory.bulletColor], firingPoint1.transform.position, firingPoint1.transform.rotation);
+                Instantiate(bulletColors[memory.bulletColor], firingPoint2.transform.position, firingPoint2.transform.rotation);
             }
             else
             {
-                Instantiate(bullet, firingPoint1.transform.position, firingPoint1.transform.rotation);
-                Instantiate(bullet, firingPoint2.transform.position, firingPoint2.transform.rotation);
-                Instantiate(bullet, firingPoint3.transform.position, firingPoint3.transform.rotation);
+                Instantiate(bulletColors[memory.bulletColor], firingPoint1.transform.position, firingPoint1.transform.rotation);
+                Instantiate(bulletColors[memory.bulletColor], firingPoint2.transform.position, firingPoint2.transform.rotation);
+                Instantiate(bulletColors[memory.bulletColor], firingPoint3.transform.position, firingPoint3.transform.rotation);
             }
         }
         else {
@@ -80,10 +97,40 @@ public class Player : MonoBehaviour
                 memory.fireRate+=0.05f;
             }
         }
-        else if (other.tag == "Money")
+        else if (other.tag == "MoreDamage")
         {
             Destroy(other.gameObject);
-            memory.money+=5;
+            memory.damage += (int) 2 / ((int) memory.score/3);
+        }
+        else if (other.tag == "DoubleMoney")
+        {
+            Destroy(other.gameObject);
+            memory.doubleMoney = 1;
+            DoubleMoneyTime = memory.score + 15;
+        }
+        else if (other.tag == "InstaKill")
+        {
+            Destroy(other.gameObject);
+            memory.instaKill = 1;
+            InstaKillTime = memory.score + 10;
+        }
+        else if (other.tag == "Money")
+        {
+            if (memory.doubleMoney == 1)
+            {
+                memory.money+=10;
+            }
+            else
+            {
+                memory.money+=5;
+            }
+            Destroy(other.gameObject);
+        }
+        else if (other.tag == "ColorChange")
+        {
+            int randomIndex = Random.Range(0, bulletColors.Length);
+            memory.bulletColor = randomIndex;
+            Destroy(other.gameObject);
         }
     }
 }

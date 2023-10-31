@@ -27,6 +27,16 @@ public class GameOver : MonoBehaviour
 
     public void Restart()
     {
+        memory.moneyTotal+=memory.money;
+        // Restart game 
+        memory.score = 0;
+        memory.money = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        memory.moneyTotal+=memory.money;
+        // SceneManager.LoadScene(0);
     }
 }

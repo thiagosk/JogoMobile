@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49830b7df616834eaba2126e8d1ad5c, type: 3}
   m_Name: New Memory
   m_EditorClassIdentifier: 
-  score: 87.15399
+  score: 46.73566
   bulletSpeed: 10
-  backgroundSpeed: 4.1887865
-  cameraSpeed: 4.188779
-  playerSpeed: 5
-  fireRate: 0.19999999
-  numBulletsSpawn: 3
-  timeBetweenSpawn: 1.4997784
-  money: 0
+  backgroundSpeed: 4.088097
+  cameraSpeed: 4.088035
+  playerSpeed: 8
+  fireRate: 0.35
+  numBulletsSpawn: 1
+  timeBetweenSpawn: 1.4995776
+  money: 10
+  moneyTotal: 140
+  damage: 1
+  instaKill: 0
+  doubleMoney: 1
+  bulletColor: 0

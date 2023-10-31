@@ -14,4 +14,9 @@ public class Memory : ScriptableObject
     public int numBulletsSpawn;
     public float timeBetweenSpawn;
     public int money;
+    public int moneyTotal;
+    public int damage;
+    public int instaKill;
+    public int doubleMoney;
+    public int bulletColor;
 }
