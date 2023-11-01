@@ -31,12 +31,39 @@ public class GameOver : MonoBehaviour
         // Restart game 
         memory.score = 0;
         memory.money = 0;
+        memory.fireRate = 0.3f;
+        memory.numBulletsSpawn = 1;
+        memory.damage = 1;
+        memory.instaKill = 0;
+        memory.doubleMoney = 0;
+        memory.bulletSpeed = 12;
+        memory.backgroundSpeed = 3.5f;
+        memory.cameraSpeed = 3.5f;
+        memory.timeBetweenSpawn = 2f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
     {
+        // Restart game 
+        memory.score = 0;
+        memory.money = 0;
+        memory.fireRate = 0.3f;
+        memory.numBulletsSpawn = 1;
+        memory.damage = 1;
+        memory.instaKill = 0;
+        memory.doubleMoney = 0;
+        memory.bulletSpeed = 12;
+        memory.backgroundSpeed = 3.5f;
+        memory.cameraSpeed = 3.5f;
+        memory.timeBetweenSpawn = 2f;
+        
         memory.moneyTotal+=memory.money;
         // SceneManager.LoadScene(0);
+    }
+
+    public void Continue()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

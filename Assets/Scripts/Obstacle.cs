@@ -26,7 +26,14 @@ public class Obstacle : MonoBehaviour
         }
         else
         {
-            life = Random.Range(3+(int)memory.score/4, 7+(int)memory.score/3);
+            if (memory.fireRate<=0.1 || memory.damage>=5)
+            {
+                life = Random.Range(3+(int)memory.score/2, 7+(int)memory.score/1);
+            }
+            else
+            {
+                life = Random.Range(3+(int)memory.score/4, 7+(int)memory.score/3);
+            }
         }
         lifeText.text = life.ToString();
     }

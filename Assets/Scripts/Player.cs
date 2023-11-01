@@ -25,11 +25,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        memory.fireRate = 0.4f;
-        memory.numBulletsSpawn = 1;
-        memory.damage = 1;
-        memory.instaKill = 0;
-        memory.doubleMoney = 0;
     }
 
     // Update is called once per frame
@@ -46,6 +41,11 @@ public class Player : MonoBehaviour
         if (DoubleMoneyTime <= memory.score)
         {
             memory.doubleMoney = 0;
+        }
+
+        if (memory.bulletSpeed <= 20)
+        {
+            memory.bulletSpeed += memory.score/1500000;
         }
     }
 
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         if (other.tag == "MoreFireRate")
         {
             Destroy(other.gameObject);
-            if (memory.fireRate > 0.05)
+            if (memory.fireRate >= 0.06)
             {
                 memory.fireRate-=0.05f;
             }
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         else if (other.tag == "MoreDamage")
         {
             Destroy(other.gameObject);
-            memory.damage += (int) 2 / ((int) memory.score/3);
+            memory.damage += 1;
         }
         else if (other.tag == "DoubleMoney")
         {
