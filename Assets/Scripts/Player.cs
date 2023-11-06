@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
 
     public Memory memory;
+    private Vector3 touchPosition = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float directionX = Input.GetAxisRaw("Horizontal");
-        playerDirection = new Vector2(directionX, 0).normalized;
+        if(Input.touchCount > 0){
+            Debug.Log("aaa");
+            Touch touch = Input.GetTouch(0);
+            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            touchPosition.z = 0f;
+        }
+
+        playerDirection = new Vector2(touchPosition.x, touchPosition.y).normalized;
         Shoot();
     }
 
