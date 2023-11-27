@@ -17,8 +17,8 @@ public class Obstacle : MonoBehaviour
 
     public Memory memory;
 
-    [SerializeField] private AudioSource DeathSound;
     [SerializeField] private AudioSource DestroyWallSound;
+    [SerializeField] private AudioSource DeathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +91,7 @@ public class Obstacle : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
-                DestroyWallSound.Play();    
+                DestroyWallSound.Play();
             }
         }
     }
