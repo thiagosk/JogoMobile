@@ -17,6 +17,9 @@ public class Obstacle : MonoBehaviour
 
     public Memory memory;
 
+    [SerializeField] private AudioSource DeathSound;
+    [SerializeField] private AudioSource DestroyWallSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,7 @@ public class Obstacle : MonoBehaviour
         else if (other.tag == "Player")
         {
             Destroy(other.gameObject);
+            DeathSound.Play();
         }
 
         else if (other.tag == "Bullet")
@@ -87,6 +91,7 @@ public class Obstacle : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
+                DestroyWallSound.Play();    
             }
         }
     }
