@@ -21,6 +21,12 @@ public class Player : MonoBehaviour
 
     public GameObject[] bulletColors;
 
+    [SerializeField] private AudioSource bulletSound;
+    [SerializeField] private AudioSource TempUpgradeSound;
+    [SerializeField] private AudioSource PermaUpgradeSound;
+    [SerializeField] private AudioSource DeathSound;
+    [SerializeField] private AudioSource CoinPickup;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -62,25 +68,30 @@ public class Player : MonoBehaviour
     }
 
     private void Shoot() {
+
         if (timeToFire <= 0f) {
             timeToFire = memory.fireRate;
             if (memory.numBulletsSpawn == 1)
             {
+                bulletSound.Play();
                 Instantiate(bulletColors[memory.bulletColor], firingPoint1.transform.position, firingPoint1.transform.rotation);
             }
             else if (memory.numBulletsSpawn == 2)
             {
+                bulletSound.Play();
                 Instantiate(bulletColors[memory.bulletColor], firingPoint1.transform.position, firingPoint1.transform.rotation);
                 Instantiate(bulletColors[memory.bulletColor], firingPoint2.transform.position, firingPoint2.transform.rotation);
             }
             else
             {
+                bulletSound.Play();
                 Instantiate(bulletColors[memory.bulletColor], firingPoint1.transform.position, firingPoint1.transform.rotation);
                 Instantiate(bulletColors[memory.bulletColor], firingPoint2.transform.position, firingPoint2.transform.rotation);
                 Instantiate(bulletColors[memory.bulletColor], firingPoint3.transform.position, firingPoint3.transform.rotation);
             }
         }
         else {
+
             timeToFire -= Time.deltaTime;
         }
     }
@@ -90,6 +101,7 @@ public class Player : MonoBehaviour
         if (other.tag == "MoreFireRate")
         {
             Destroy(other.gameObject);
+            PermaUpgradeSound.Play();
             if (memory.fireRate >= 0.06)
             {
                 memory.fireRate-=0.05f;
@@ -98,8 +110,9 @@ public class Player : MonoBehaviour
         else if (other.tag == "MoreBulletsSpawn")
         {
             Destroy(other.gameObject);
-            if (memory.numBulletsSpawn<=2)
+            if (memory.numBulletsSpawn<=3)
             {
+                TempUpgradeSound.Play();
                 memory.numBulletsSpawn+=1;
                 memory.fireRate+=0.05f;
             }
@@ -107,17 +120,20 @@ public class Player : MonoBehaviour
         else if (other.tag == "MoreDamage")
         {
             Destroy(other.gameObject);
+            PermaUpgradeSound.Play();
             memory.damage += 1;
         }
         else if (other.tag == "DoubleMoney")
         {
             Destroy(other.gameObject);
+            TempUpgradeSound.Play();
             memory.doubleMoney = 1;
             DoubleMoneyTime = memory.score + 15;
         }
         else if (other.tag == "InstaKill")
         {
             Destroy(other.gameObject);
+            TempUpgradeSound.Play();
             memory.instaKill = 1;
             InstaKillTime = memory.score + 10;
         }
@@ -132,12 +148,14 @@ public class Player : MonoBehaviour
                 memory.money+=5;
             }
             Destroy(other.gameObject);
+            CoinPickup.Play();
         }
         else if (other.tag == "ColorChange")
         {
             int randomIndex = Random.Range(0, bulletColors.Length);
             memory.bulletColor = randomIndex;
             Destroy(other.gameObject);
+            PermaUpgradeSound.Play();
         }
     }
 }
