@@ -124,8 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeText: {fileID: 3949469431954317380}
   memory: {fileID: 11400000, guid: 1c73e1a47cf101147962ee1698596d57, type: 2}
-  DeathSound: {fileID: 1946869298571895575}
   DestroyWallSound: {fileID: 6845334572863554269}
+  DeathSound: {fileID: 1946869298571895575}
 --- !u!82 &6845334572863554269
 AudioSource:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68ae4ca22ee0b954d9db92fce087714c, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -526,8 +526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeText: {fileID: 5077381815606993254}
   memory: {fileID: 11400000, guid: 1c73e1a47cf101147962ee1698596d57, type: 2}
-  DeathSound: {fileID: 6981169970596198518}
   DestroyWallSound: {fileID: 4033140536143816935}
+  DeathSound: {fileID: 6981169970596198518}
 --- !u!82 &6981169970596198518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -844,8 +844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeText: {fileID: 9149189932790053115}
   memory: {fileID: 11400000, guid: 1c73e1a47cf101147962ee1698596d57, type: 2}
-  DeathSound: {fileID: 4990092627556607293}
   DestroyWallSound: {fileID: 937791059080932380}
+  DeathSound: {fileID: 4990092627556607293}
 --- !u!82 &937791059080932380
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1111,7 +1111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68ae4ca22ee0b954d9db92fce087714c, type: 3}
   m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1195,7 +1195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68ae4ca22ee0b954d9db92fce087714c, type: 3}
   m_Color: {r: 1, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
