@@ -124,8 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeText: {fileID: 430499295238760315}
   memory: {fileID: 11400000, guid: 1c73e1a47cf101147962ee1698596d57, type: 2}
-  DeathSound: {fileID: 1762984459356916518}
   DestroyWallSound: {fileID: 674616484229346515}
+  DeathSound: {fileID: 1762984459356916518}
 --- !u!82 &674616484229346515
 AudioSource:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68ae4ca22ee0b954d9db92fce087714c, type: 3}
   m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -596,7 +596,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68ae4ca22ee0b954d9db92fce087714c, type: 3}
   m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -731,8 +731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeText: {fileID: 2880180336108090785}
   memory: {fileID: 11400000, guid: 1c73e1a47cf101147962ee1698596d57, type: 2}
-  DeathSound: {fileID: 4460705622542184158}
   DestroyWallSound: {fileID: 2610450785740441947}
+  DeathSound: {fileID: 4460705622542184158}
 --- !u!82 &2610450785740441947
 AudioSource:
   m_ObjectHideFlags: 0

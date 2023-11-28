@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68ae4ca22ee0b954d9db92fce087714c, type: 3}
   m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeText: {fileID: 400335359993983374}
   memory: {fileID: 11400000, guid: 1c73e1a47cf101147962ee1698596d57, type: 2}
-  DeathSound: {fileID: 7424520499528540638}
   DestroyWallSound: {fileID: 4585299726839465382}
+  DeathSound: {fileID: 7424520499528540638}
 --- !u!82 &4585299726839465382
 AudioSource:
   m_ObjectHideFlags: 0
