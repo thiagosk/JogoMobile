@@ -1380,6 +1380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673e1a9100dbb604393d473d659f48bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterDB: {fileID: 11400000, guid: b692fc7f58df5c14f8f3b1b31cf24930, type: 2}
+  artworkSprite: {fileID: 783605628}
   firingPoint1: {fileID: 860262195}
   firingPoint2: {fileID: 628992618}
   firingPoint3: {fileID: 1070714296}
@@ -1459,7 +1461,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77feb869ad2556468b57c0be06143da, type: 3}
   m_Color: {r: 1, g: 0.69235474, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1524,7 +1526,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.92, y: 1.92}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

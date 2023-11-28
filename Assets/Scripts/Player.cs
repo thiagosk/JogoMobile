@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public CharacterDB characterDB;
+    public SpriteRenderer artworkSprite;
+    private int selectedOption = 0;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
 
@@ -26,6 +29,23 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if(PlayerPrefs.HasKey("selectedOption")){
+            Load();
+        }
+        else{
+            selectedOption = 0;
+        }
+        UpdateCharacter(selectedOption);
+
+    }
+
+    private void UpdateCharacter(int selectedOption){
+        Character character = characterDB.GetCharacter(selectedOption);
+        artworkSprite.sprite = character.characterSprite;
+    }
+
+    private void Load(){
+        selectedOption = PlayerPrefs.GetInt("selectedOption");
     }
 
     // Update is called once per frame
