@@ -38,13 +38,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         if(Input.touchCount > 0){
-            Debug.Log("aaa");
             Touch touch = Input.GetTouch(0);
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = 0f;
+        }else{
         }
 
-        playerDirection = new Vector2(touchPosition.x, touchPosition.y).normalized;
         Shoot();
         
         if (InstaKillTime <= memory.score)
@@ -64,7 +63,11 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(playerDirection.x * memory.playerSpeed, 0);
+        Vector3 targetPosition = new Vector3(touchPosition.x, transform.position.y, 0f);
+        
+        // Adjust the player's position gradually using Lerp
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.fixedDeltaTime * memory.playerSpeed);
+
     }
 
     private void Shoot() {
