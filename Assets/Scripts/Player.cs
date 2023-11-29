@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     public CharacterDB characterDB;
     public SpriteRenderer artworkSprite;
     private int selectedOption = 0;
@@ -18,10 +19,8 @@ public class Player : MonoBehaviour
 
     public Memory memory;
     private Vector3 touchPosition = Vector3.zero;
-
     private float InstaKillTime;
     private float DoubleMoneyTime;
-
     public GameObject[] bulletColors;
 
     [SerializeField] private AudioSource bulletSound;

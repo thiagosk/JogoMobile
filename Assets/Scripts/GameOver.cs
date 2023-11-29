@@ -37,8 +37,8 @@ public class GameOver : MonoBehaviour
         memory.instaKill = 0;
         memory.doubleMoney = 0;
         memory.bulletSpeed = 12;
-        memory.backgroundSpeed = 3.5f;
-        memory.cameraSpeed = 3.5f;
+        memory.backgroundSpeed = 4f;
+        memory.cameraSpeed = 4f;
         memory.timeBetweenSpawn = 2f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -54,8 +54,8 @@ public class GameOver : MonoBehaviour
         memory.instaKill = 0;
         memory.doubleMoney = 0;
         memory.bulletSpeed = 12;
-        memory.backgroundSpeed = 3.5f;
-        memory.cameraSpeed = 3.5f;
+        memory.backgroundSpeed = 4f;
+        memory.cameraSpeed = 4f;
         memory.timeBetweenSpawn = 2f;
         
         memory.moneyTotal+=memory.money;
