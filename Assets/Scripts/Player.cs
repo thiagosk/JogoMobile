@@ -34,23 +34,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        if(PlayerPrefs.HasKey("selectedOption")){
-            Load();
-        }
-        else{
-            selectedOption = 0;
-        }
-        UpdateCharacter(selectedOption);
-
+        UpdateCharacter(memory.skingChoice);
     }
 
     private void UpdateCharacter(int selectedOption){
         Character character = characterDB.GetCharacter(selectedOption);
         artworkSprite.sprite = character.characterSprite;
-    }
-
-    private void Load(){
-        selectedOption = PlayerPrefs.GetInt("selectedOption");
     }
 
     // Update is called once per frame

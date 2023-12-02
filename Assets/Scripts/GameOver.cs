@@ -59,7 +59,7 @@ public class GameOver : MonoBehaviour
         memory.timeBetweenSpawn = 2f;
         
         memory.moneyTotal+=memory.money;
-        // SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
     }
 
     public void Continue()
