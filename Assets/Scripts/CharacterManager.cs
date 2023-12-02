@@ -3,58 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CharacterManager : MonoBehaviour
 {
     public CharacterDB characterDB;
-    public Text NameText;
+    public TextMeshProUGUI NameText;
     public SpriteRenderer artworkSprite;
-    private int selectedOption = 0;
+    public Memory memory;
     void Start()
     {
-        if(PlayerPrefs.HasKey("selectedOption")){
-            Load();
-        }
-        else{
-            selectedOption = 0;
-        }
-        UpdateCharacter(selectedOption);
+        UpdateCharacter();
     }
 
-    public void NextOption(){     
-        selectedOption++;
-        if(selectedOption >= characterDB.CharacterCount){
-            selectedOption = 0;
+    public void NextOption(){
+        Debug.Log("next");     
+        memory.skingChoice++;
+        if(memory.skingChoice >= characterDB.CharacterCount){
+            memory.skingChoice = 0;
         }
-        UpdateCharacter(selectedOption);
-        Debug.Log("next");
-        Save();
+        UpdateCharacter();
     }
 
     public void BackOption(){
-        selectedOption--;
-        if(selectedOption < 0){
-            selectedOption = characterDB.CharacterCount - 1;
+        memory.skingChoice--;
+        if(memory.skingChoice < 0){
+            memory.skingChoice = characterDB.CharacterCount - 1;
         }
-        UpdateCharacter(selectedOption);
+        UpdateCharacter();
         Debug.Log("back");
-        Save();
     }
 
-    private void UpdateCharacter(int selectedOption){
-        Character character = characterDB.GetCharacter(selectedOption);
+    private void UpdateCharacter(){
+        Character character = characterDB.GetCharacter(memory.skingChoice);
         artworkSprite.sprite = character.characterSprite;
         NameText.text = character.characterName;
     }
-
-    private void Load(){
-        selectedOption = PlayerPrefs.GetInt("selectedOption");
-    }
-
-    private void Save(){
-        PlayerPrefs.SetInt("selectedOption", selectedOption);
-    }
-
     public void Playgame(){
         SceneManager.LoadSceneAsync(1);
     }

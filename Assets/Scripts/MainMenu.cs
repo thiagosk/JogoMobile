@@ -18,4 +18,8 @@ public void QuitGame(){
     Application.Quit();
 }
 
+public void SelectSkin(){
+    SceneManager.LoadSceneAsync(2);
+}
+
 }
