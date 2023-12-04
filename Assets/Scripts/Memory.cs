@@ -19,6 +19,6 @@ public class Memory : ScriptableObject
     public int instaKill;
     public int doubleMoney;
     public int bulletColor;
-    public int skingChoice=0;
+    public int skingChoice;
     public string skinName="Alt";
 }
